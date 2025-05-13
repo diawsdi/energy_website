@@ -1,93 +1,326 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { FaBolt, FaSatellite, FaGlobe, FaLightbulb, FaArrowDown } from 'react-icons/fa';
 
-const Hero: React.FC = () => {
+// Particle effect for background
+const Particles: React.FC = () => {
+  const particles = Array.from({ length: 80 }).map((_, index) => ({
+    id: index,
+    size: Math.random() * 3 + 1,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 20 + 10,
+    delay: Math.random() * 5,
+    color: index % 4 === 0 ? '#FFC107' : // Solar yellow
+           index % 4 === 1 ? '#4CAF50' : // Vibrant green
+           index % 4 === 2 ? '#00BCD4' : // Sky blue
+           '#0052CC',      // Electric blue
+  }));
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient with overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-electric-blue to-sky-blue opacity-90"></div>
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
+    <div className="absolute inset-0 overflow-hidden">
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute rounded-full"
+          style={{
+            width: particle.size,
+            height: particle.size,
+            top: `${particle.y}%`,
+            left: `${particle.x}%`,
+            opacity: particle.size / 15,
+            backgroundColor: particle.color,
+            boxShadow: `0 0 ${particle.size * 2}px ${particle.color}`,
+          }}
+          animate={{
+            y: [`${particle.y}%`, `${particle.y + (Math.random() * 15 - 7.5)}%`, `${particle.y}%`],
+            x: [`${particle.x}%`, `${particle.x + (Math.random() * 15 - 7.5)}%`, `${particle.x}%`],
+            opacity: [particle.size / 15, particle.size / 6, particle.size / 15],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: particle.duration,
+            delay: particle.delay,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+// Animated highlight circles
+const HighlightCircles: React.FC = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Solar yellow glow */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: 500,
+          height: 500,
+          top: '30%',
+          right: '-5%',
+          background: 'radial-gradient(circle, rgba(255,193,7,0.15) 0%, rgba(255,193,7,0.05) 40%, rgba(255,193,7,0) 70%)',
+        }}
+        animate={{
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "reverse",
+          duration: 15,
+        }}
+      />
+
+      {/* Electric blue glow */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: 600,
+          height: 600,
+          bottom: '-10%',
+          left: '-10%',
+          background: 'radial-gradient(circle, rgba(0,82,204,0.15) 0%, rgba(0,82,204,0.05) 40%, rgba(0,82,204,0) 70%)',
+        }}
+        animate={{
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "reverse",
+          duration: 20,
+          delay: 2,
+        }}
+      />
+
+      {/* Vibrant green accent */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: 300,
+          height: 300,
+          top: '10%',
+          left: '15%',
+          background: 'radial-gradient(circle, rgba(76,175,80,0.12) 0%, rgba(76,175,80,0.04) 50%, rgba(76,175,80,0) 70%)',
+        }}
+        animate={{
+          scale: [1, 1.3, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "reverse",
+          duration: 12,
+          delay: 5,
+        }}
+      />
+    </div>
+  );
+};
+
+// Animated icons
+const FloatingIcons: React.FC = () => {
+  const icons = [
+    { Icon: FaBolt, top: "30%", left: "15%", delay: 0, color: "#FFC107" },  // Solar yellow
+    { Icon: FaSatellite, top: "20%", left: "75%", delay: 1.2, color: "#0052CC" },  // Electric blue
+    { Icon: FaGlobe, top: "70%", left: "80%", delay: 0.8, color: "#00BCD4" },  // Sky blue
+    { Icon: FaLightbulb, top: "75%", left: "20%", delay: 1.5, color: "#4CAF50" },  // Vibrant green
+  ];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {icons.map((icon, index) => (
+        <motion.div
+          key={index}
+          className="absolute"
+          style={{ top: icon.top, left: icon.left }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: icon.delay, duration: 1 }}
+        >
           <motion.div
-            key={i}
-            className="absolute rounded-full bg-white opacity-10"
-            style={{
-              width: Math.random() * 300 + 50,
-              height: Math.random() * 300 + 50,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+            animate={{ y: ["-15px", "15px", "-15px"] }}
+            transition={{ repeat: Infinity, duration: 5 + index }}
+            style={{ 
+              color: icon.color,
+              filter: `drop-shadow(0 0 8px ${icon.color})`,
             }}
-            animate={{
-              x: [0, Math.random() * 100 - 50],
-              y: [0, Math.random() * 100 - 50],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: Math.random() * 20 + 10,
-            }}
-          />
-        ))}
+          >
+            <icon.Icon size={index % 2 === 0 ? 48 : 36} />
+          </motion.div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+// Hero component
+const Hero: React.FC = () => {
+  const textControls = useAnimation();
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  
+  const highlightTexts = [
+    "Real-time insights",
+    "AI-driven analytics",
+    "Geospatial intelligence",
+  ];
+
+  useEffect(() => {
+    const cycleText = async () => {
+      await textControls.start({ opacity: 0, y: 20 });
+      setCurrentTextIndex((prev) => (prev + 1) % highlightTexts.length);
+      await textControls.start({ opacity: 1, y: 0 });
+    };
+
+    const intervalId = setInterval(cycleText, 4000);
+    return () => clearInterval(intervalId);
+  }, [textControls]);
+
+  return (
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
+      {/* Dark theme background with subtle grid pattern */}
+      <div className="absolute inset-0 bg-[#050A15] z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07101f] to-[#050A15]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMxMTJhNGUiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMzYgMzR2Nmg2di02aC02em0wIDB2NmgtNnYtNmg2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
       </div>
+      
+      {/* Multi-layer background elements */}
+      <Particles />
+      <HighlightCircles />
+      <FloatingIcons />
       
       {/* Content container */}
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="max-w-5xl mx-auto"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Powering Tomorrow, <span className="text-solar-yellow">Today</span>
-          </h1>
-          
-          <p className="text-xl sm:text-2xl text-white opacity-90 mb-10 max-w-3xl mx-auto">
-            Real-time electrification planning leveraging AI, Remote Sensing, and Geospatial Intelligence to sustainably illuminate communities.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link href="/#contact" className="btn btn-primary text-lg">
-              Request a Demo
-            </Link>
-            <Link href="/#solutions" className="btn bg-white text-electric-blue hover:bg-opacity-90 text-lg">
-              Explore Solutions
-            </Link>
+          {/* Enhanced title with animated elements */}
+          <div className="relative mb-8 inline-block">
+            <motion.div 
+              className="absolute -inset-1 rounded-lg bg-gradient-to-r from-solar-yellow via-vibrant-green to-sky-blue blur-2xl opacity-20"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            />
+            <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <motion.span
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                Illuminating <span className="text-solar-yellow drop-shadow-[0_0_25px_rgba(255,193,7,0.5)]">Energy Decisions</span>
+              </motion.span>
+              <br className="hidden xs:block" />
+              <motion.span
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="inline-block mt-2 md:mt-0"
+              >
+                with <span className="relative inline-block">
+                  <span className="absolute -inset-1 rounded-lg bg-electric-blue blur-lg opacity-20"></span>
+                  <span className="relative inline-block bg-gradient-to-r from-sky-blue to-electric-blue bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,82,204,0.5)]">AI</span>
+                </span> and <span className="text-vibrant-green drop-shadow-[0_0_20px_rgba(76,175,80,0.5)]">Satellite Precision</span>
+              </motion.span>
+            </h1>
           </div>
+          
+          {/* Dynamic subtitle with changing highlights - fixed for visibility and layout shift */}
+          <motion.div 
+            className="text-lg sm:text-xl md:text-2xl text-white opacity-95 mb-6 max-w-3xl mx-auto font-light px-4 sm:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <p className="inline-block sm:inline">Intelligent electrification planning powered by</p>
+            <div className="relative inline-block sm:ml-2 min-w-[220px] h-[36px] align-bottom mt-2 sm:mt-0">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentTextIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute left-0 whitespace-nowrap"
+                >
+                  <span 
+                    className="font-bold"
+                    style={{
+                      color: currentTextIndex === 0 ? '#FFC107' : 
+                             currentTextIndex === 1 ? '#0052CC' : '#4CAF50',
+                      textShadow: `0 0 15px ${currentTextIndex === 0 ? 'rgba(255,193,7,0.7)' : 
+                                  currentTextIndex === 1 ? 'rgba(0,82,204,0.7)' : 'rgba(76,175,80,0.7)'}`
+                    }}
+                  >
+                    {highlightTexts[currentTextIndex]}
+                  </span>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </motion.div>
+
+          <motion.p 
+            className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            Sustainably illuminate communities through data-driven energy planning
+          </motion.p>
+          
+          {/* Enhanced CTA buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 px-4 sm:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+          >
+            <Link href="/#contact" className="relative group w-full sm:w-auto">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-solar-yellow to-vibrant-green rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+              <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-solar-yellow/30 text-white font-medium">
+                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out bg-gradient-to-r from-solar-yellow/10 to-vibrant-green/10 rounded-lg opacity-0 group-hover:opacity-100"></span>
+                <span className="relative flex items-center justify-center">
+                  <FaBolt className="mr-2 text-solar-yellow drop-shadow-[0_0_8px_rgba(255,193,7,0.7)]" />
+                  Request a Demo
+                </span>
+              </button>
+            </Link>
+            <Link href="/#solutions" className="relative group overflow-hidden w-full sm:w-auto">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-blue to-sky-blue rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+              <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-electric-blue/30 text-white font-medium">
+                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out bg-gradient-to-r from-electric-blue/10 to-sky-blue/10 rounded-lg opacity-0 group-hover:opacity-100"></span>
+                <span className="relative flex items-center justify-center">
+                  Explore Solutions
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200 text-sky-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </button>
+            </Link>
+          </motion.div>
         </motion.div>
         
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 md:mt-24"
-        >
-          <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-xl p-4 sm:p-6 inline-block">
-            <p className="text-white font-medium mb-2">Trusted by leading organizations</p>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {/* Placeholder for partner logos */}
-              {['Energy Ministry', 'Global Power Co', 'UN Energy', 'World Bank'].map((partner, index) => (
-                <div key={index} className="text-white font-bold opacity-80">
-                  {partner}
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        {/* Partner showcase section removed to create more vertical space */}
       </div>
       
-      {/* Scroll down indicator */}
+      {/* Enhanced scroll indicator with dark theme */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-electric-blue bg-[#0a1528] backdrop-blur-lg rounded-full p-2 sm:p-3 border border-electric-blue/40 shadow-lg z-10"
+        animate={{ 
+          y: [0, 10, 0], 
+          boxShadow: [
+            "0 0 0 rgba(0, 82, 204, 0.2)",
+            "0 0 20px rgba(0, 82, 204, 0.6)",
+            "0 0 0 rgba(0, 82, 204, 0.2)"
+          ]
+        }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        whileHover={{ scale: 1.1, boxShadow: "0 0 25px rgba(0, 82, 204, 0.8)" }}
       >
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <FaArrowDown className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-electric-blue drop-shadow-[0_0_8px_rgba(0,82,204,0.7)]" />
       </motion.div>
     </section>
   );

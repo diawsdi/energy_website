@@ -3,6 +3,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Transformation from './components/Transformation';
 import WhyUs from './components/WhyUs';
 import Solutions from './components/Solutions';
 import Technology from './components/Technology';
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <Transformation />
       <WhyUs />
       <Solutions />
       <Technology />
