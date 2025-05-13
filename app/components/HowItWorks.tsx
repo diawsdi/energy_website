@@ -154,12 +154,12 @@ const HowItWorks: React.FC = () => {
           <div className="inline-block mb-3">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-electric-blue via-solar-yellow to-vibrant-green opacity-50 blur-lg rounded-lg"></div>
-              <h2 className="relative text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 z-10 py-1 px-3">
+              <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 z-10 py-1 px-3 tracking-tight leading-tight">
                 How It Works
               </h2>
             </div>
           </div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-inter leading-relaxed tracking-wide">
             Our intuitive platform guides you through a comprehensive energy planning process in just five simple steps.
           </p>
         </motion.div>

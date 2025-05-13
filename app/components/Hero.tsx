@@ -205,7 +205,7 @@ const Hero: React.FC = () => {
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             />
-            <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="relative font-montserrat text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
               <motion.span
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -230,7 +230,7 @@ const Hero: React.FC = () => {
           
           {/* Dynamic subtitle with changing highlights - fixed for visibility and layout shift */}
           <motion.div 
-            className="text-lg sm:text-xl md:text-2xl text-white opacity-95 mb-6 max-w-3xl mx-auto font-light px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white opacity-95 mb-6 max-w-3xl mx-auto font-inter font-light px-4 sm:px-0 leading-relaxed tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -280,7 +280,7 @@ const Hero: React.FC = () => {
           >
             <Link href="/#contact" className="relative group w-full sm:w-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-solar-yellow to-vibrant-green rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-              <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-solar-yellow/30 text-white font-medium">
+              <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-solar-yellow/30 text-white font-poppins font-medium tracking-wide">
                 <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out bg-gradient-to-r from-solar-yellow/10 to-vibrant-green/10 rounded-lg opacity-0 group-hover:opacity-100"></span>
                 <span className="relative flex items-center justify-center">
                   <FaBolt className="mr-2 text-solar-yellow drop-shadow-[0_0_8px_rgba(255,193,7,0.7)]" />
@@ -290,7 +290,7 @@ const Hero: React.FC = () => {
             </Link>
             <Link href="/#solutions" className="relative group overflow-hidden w-full sm:w-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-blue to-sky-blue rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-              <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-electric-blue/30 text-white font-medium">
+              <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-electric-blue/30 text-white font-poppins font-medium tracking-wide">
                 <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out bg-gradient-to-r from-electric-blue/10 to-sky-blue/10 rounded-lg opacity-0 group-hover:opacity-100"></span>
                 <span className="relative flex items-center justify-center">
                   Explore Solutions

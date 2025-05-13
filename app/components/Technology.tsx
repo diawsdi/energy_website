@@ -135,18 +135,18 @@ const TechDetail: React.FC<TechDetailProps> = ({ selectedIndex, techFeatures }) 
           </div>
           
           {/* Bottom stats */}
-          <div className="mt-8 pt-6 border-t border-white/10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
               {feature.stats.map((stat: any, idx: number) => (
                 <motion.div 
                   key={idx}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
-                  className="text-center"
+                  className="text-center px-1 py-2 sm:py-0"
                 >
-                  <div className={`text-2xl font-bold text-${feature.accent}`}>{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className={`text-lg sm:text-xl md:text-2xl font-bold text-${feature.accent}`}>{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -256,39 +256,46 @@ const Technology: React.FC = () => {
   ];
 
   return (
-    <section id="technology" className="py-16 md:py-24 bg-[#050A15] overflow-hidden">
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <section id="technology" className="py-16 sm:py-20 md:py-24 bg-[#050A15] relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-electric-blue opacity-10 blur-3xl"></div>
+        <div className="absolute top-1/4 -left-40 w-80 h-80 rounded-full bg-solar-yellow opacity-10 blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-vibrant-green opacity-10 blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-10 md:mb-16 max-w-2xl mx-auto text-center"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <div className="inline-block mb-3">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-electric-blue via-vibrant-green to-solar-yellow opacity-50 blur-lg rounded-lg"></div>
-              <h2 className="relative text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 z-10 py-1 px-3">
+              <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 z-10 py-1 px-3 tracking-tight leading-tight">
                 Our Technology Advantage
               </h2>
             </div>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-inter leading-relaxed tracking-wide">
             Cutting-edge technologies powering accurate insights and reliable recommendations for energy access planning across the globe.
           </p>
         </motion.div>
         
-        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
           {/* Left side - Tech selector */}
-          <div className="lg:col-span-2 space-y-2 sm:space-y-4 mb-6 lg:mb-0">
-            <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:hidden mb-6">
+          <div className="lg:col-span-2 space-y-2 sm:space-y-4 mb-4 sm:mb-6 lg:mb-0">
+            <div className="grid grid-cols-3 sm:hidden gap-2 mb-4 sm:mb-6">
               {techFeatures.map((feature, index) => (
                 <button
                   key={`mobile-tab-${index}`}
-                  className={`px-3 py-2 rounded-lg flex items-center justify-center transition-all duration-300 flex-1 min-w-20 ${selectedIndex === index ? `${feature.color} text-white shadow-lg` : 'bg-white/5 text-white hover:bg-white/10'}`}
+                  className={`px-2 py-2 rounded-lg flex items-center justify-center transition-all duration-300 ${selectedIndex === index ? `${feature.color} text-white shadow-lg` : 'bg-white/5 text-white hover:bg-white/10'}`}
                   onClick={() => setSelectedIndex(index)}
                 >
-                  {feature.icon}
+                  <span className="text-lg">{feature.icon}</span>
                 </button>
               ))}
             </div>
@@ -310,7 +317,7 @@ const Technology: React.FC = () => {
           </div>
           
           {/* Right side - Tech details */}
-          <div className="lg:col-span-3 h-[500px] sm:h-[600px]">
+          <div className="lg:col-span-3 h-[400px] xs:h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px]">
             <TechDetail 
               selectedIndex={selectedIndex}
               techFeatures={techFeatures}
