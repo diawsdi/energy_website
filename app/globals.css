@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --electric-blue: #0052CC;
+  --solar-yellow: #FFC107;
+  --vibrant-green: #4CAF50;
+  --sky-blue: #00BCD4;
+  --pure-white: #FFFFFF;
+  --slate-gray: #37474F;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-inter text-slate-gray bg-pure-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 md:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center;
+  }
+  
+  .btn-primary {
+    @apply bg-vibrant-green text-white hover:bg-opacity-90;
+  }
+  
+  .btn-secondary {
+    @apply bg-electric-blue text-white hover:bg-opacity-90;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-electric-blue;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-slate-gray max-w-2xl mx-auto mb-10;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--electric-blue) 0%, var(--sky-blue) 100%);
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+} 
