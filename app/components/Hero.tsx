@@ -211,7 +211,7 @@ const Hero: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                Illuminating <span className="text-solar-yellow drop-shadow-[0_0_25px_rgba(255,193,7,0.5)]">Energy Decisions</span>
+                Smart <span className="text-solar-yellow drop-shadow-[0_0_25px_rgba(255,193,7,0.5)]">Energy Decisions</span>
               </motion.span>
               <br className="hidden xs:block" />
               <motion.span
@@ -268,7 +268,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Sustainably illuminate communities through data-driven energy planning
+            One platform to align your energy ambitions and your execution
           </motion.p>
           
           {/* Enhanced CTA buttons */}

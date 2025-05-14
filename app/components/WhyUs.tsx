@@ -62,7 +62,7 @@ const WhyUs: React.FC = () => {
     {
       icon: <FaLightbulb size={24} />,
       title: "Optimized Energy Solutions",
-      description: "Automatically generate optimal electrification solutions (grid extension, mini-grids, renewables) tailored for your community.",
+      description: "Automatically generate optimal electrification solutions (grid extension, mini-grids, off grid) tailored for your community.",
       accentColor: "bg-vibrant-green"
     },
     {
