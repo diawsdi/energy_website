@@ -67,7 +67,7 @@ const UseCases: React.FC = () => {
         { icon: <FaClock />, value: "5.2", label: "Months to Deployment" }
       ],
       visualElements: [
-        { type: 'chart', value: "92%", label: "Demand Forecast Accuracy", color: "bg-vibrant-green" },
+        { type: 'chart', value: "90%", label: "Demand Forecast Accuracy", color: "bg-vibrant-green" },
         { type: 'metric', value: "12x", label: "Time Savings", color: "bg-electric-blue" },
         { type: 'icon', value: <FaBolt className="text-white text-4xl" />, label: "Power Distribution" }
       ]
