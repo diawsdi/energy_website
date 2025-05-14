@@ -117,40 +117,42 @@ const TechDetail: React.FC<TechDetailProps> = ({ selectedIndex, techFeatures }) 
             {/* Tech stack */}
             <div className="space-y-3 sm:space-y-4 md:space-y-5">
               <h4 className="text-lg sm:text-xl font-semibold text-white/90">Key Technologies</h4>
-              <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+              <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                 {feature.technologies.map((tech: any, idx: number) => (
                   <motion.div 
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 + idx * 0.1 }}
-                    className="flex items-center gap-2 sm:gap-3 bg-white/5 rounded-lg p-2 sm:p-3 md:p-4 hover:bg-white/10 transition duration-300"
+                    className="flex items-start gap-2 sm:gap-3 bg-white/5 rounded-lg p-2.5 sm:p-3.5 hover:bg-white/10 transition duration-300 min-h-[60px]"
                   >
-                    <span className={`text-${feature.accent} text-sm sm:text-base`}>{tech.icon}</span>
-                    <span className="text-white text-xs sm:text-sm font-medium">{tech.name}</span>
+                    <span className={`text-${feature.accent} text-sm sm:text-base mt-0.5 shrink-0`}>{tech.icon}</span>
+                    <span className="text-white text-xs sm:text-sm font-medium leading-tight break-words">​{tech.name}</span>
                   </motion.div>
                 ))}
               </div>
             </div>
           </div>
           
-          {/* Bottom stats */}
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
-              {feature.stats.map((stat: any, idx: number) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
-                  className="text-center px-1 py-2 sm:py-0"
-                >
-                  <div className={`text-lg sm:text-xl md:text-2xl font-bold text-${feature.accent}`}>{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-gray-400">{stat.label}</div>
-                </motion.div>
-              ))}
+          {/* Bottom stats - only shown when stats are available */}
+          {feature.stats && feature.stats.length > 0 && (
+            <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
+                {feature.stats.map((stat: any, idx: number) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
+                    className="text-center px-1 py-2 sm:py-0"
+                  >
+                    <div className={`text-lg sm:text-xl md:text-2xl font-bold text-${feature.accent}`}>{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-gray-400">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </motion.div>
@@ -164,21 +166,21 @@ const Technology: React.FC = () => {
     {
       icon: <FaBrain size={32} />,
       title: "AI & Machine Learning",
-      description: "Our deep learning models assess electrification status with 96% accuracy and forecast energy demands using advanced neural networks trained on global infrastructure data. By incorporating computer vision with satellite imagery, we identify even the most remote communities in need of energy access.",
+      description: "Our AI models estimate electricity access and forecast demand at the building level with high precision, using a probabilistic learning approach. By combining nighttime light intensity, high-resolution satellite imagery, building footprints, internet performance, and land use patterns, the system identifies underserved communities and quantifies energy needs. The models generate both access likelihood and monthly consumption estimates, enabling targeted, cost-effective electrification planning even in data-scarce environments.",
       color: "bg-electric-blue",
       accent: "electric-blue",
       bgColor: "bg-electric-blue",
       bgAccent: "rgba(0,82,204,0.5)",
       technologies: [
-        { name: "TensorFlow", icon: <FaMicrochip size={16} /> },
-        { name: "PyTorch", icon: <FaBrain size={16} /> },
-        { name: "Computer Vision", icon: <FaRobot size={16} /> },
-        { name: "NLP", icon: <FaCogs size={16} /> },
-        { name: "Predictive Analytics", icon: <FaDatabase size={16} /> },
-        { name: "Transfer Learning", icon: <FaNetworkWired size={16} /> },
+        { name: "Bayesian Neural Networks", icon: <FaBrain size={16} /> },
+        { name: "Multimodal Data Fusion", icon: <FaNetworkWired size={16} /> },
+        { name: "Remote Sensing Feature Extraction", icon: <FaSatellite size={16} /> },
+        { name: "Probabilistic Demand Modeling", icon: <FaDatabase size={16} /> },
+        { name: "Geospatial Deep Learning", icon: <FaGlobe size={16} /> },
+        { name: "Noise-Tolerant Training", icon: <FaCogs size={16} /> },
       ],
       stats: [
-        { value: "96%", label: "Accuracy" },
+        { value: "90%", label: "Accuracy" },
         { value: "5TB+", label: "Training Data" },
         { value: "12M", label: "Structures Analyzed" },
         { value: "43", label: "AI Models" }
@@ -187,41 +189,36 @@ const Technology: React.FC = () => {
     {
       icon: <FaGlobe size={32} />,
       title: "Geospatial Intelligence",
-      description: "Our geospatial platform integrates satellite imagery, terrain analysis, and socioeconomic indicators to create comprehensive energy planning maps. Our algorithms optimize grid extensions, mini-grid placements, and solar installations based on geographic constraints, population density, and projected development patterns.",
+      description: "Our platform leverages Google Earth Engine for rapid satellite imagery preprocessing and analysis at global scale. We store and query large-scale geospatial data in BigQuery, enabling real-time analytical dashboards and reporting. This combination provides unprecedented speed and scalability for energy access mapping and planning.",
       color: "bg-vibrant-green",
       accent: "vibrant-green",
       bgColor: "bg-vibrant-green",
       bgAccent: "rgba(76,175,80,0.5)",
       technologies: [
         { name: "Google Earth Engine", icon: <FaGlobe size={16} /> },
-        { name: "QGIS", icon: <FaGlobe size={16} /> },
-        { name: "ArcGIS", icon: <FaGlobe size={16} /> },
-        { name: "Spatial Analysis", icon: <FaNetworkWired size={16} /> },
-        { name: "3D Terrain Modeling", icon: <FaMicrochip size={16} /> },
-        { name: "Geo-clustering", icon: <FaDatabase size={16} /> },
+        { name: "BigQuery", icon: <FaDatabase size={16} /> },
+        { name: "Geospatial Analytics", icon: <FaGlobe size={16} /> },
+        { name: "Real-time Dashboards", icon: <FaNetworkWired size={16} /> },
+        { name: "Satellite Preprocessing", icon: <FaSatellite size={16} /> },
+        { name: "Global-scale Processing", icon: <FaCloud size={16} /> },
       ],
-      stats: [
-        { value: "189", label: "Countries Covered" },
-        { value: "1.2M", label: "Sq. Kilometers" },
-        { value: "8K+", label: "Data Layers" },
-        { value: "250ms", label: "Query Response" }
-      ]
+      stats: []
     },
     {
       icon: <FaSatellite size={32} />,
       title: "Remote Sensing Integration",
-      description: "Our platform synthesizes data from multiple satellite sources including Sentinel-1/2, VIIRS Nightlights, and Google Open Buildings database. We apply advanced image processing techniques to extract features from multispectral and radar imagery, enabling real-time monitoring of infrastructure development and energy distribution networks even in cloud-covered regions.",
+      description: "We aggregate critical data from Sentinel-2, VIIRS Nighttime Lights, Google Open Buildings, Microsoft Building Footprints, and high-resolution satellite imagery. Our system calculates building density, integrates land use/land cover analysis, and correlates with Ookla Speedtest data to provide rich socioeconomic context for energy demand and access modeling.",
       color: "bg-solar-yellow",
       accent: "solar-yellow",
       bgColor: "bg-solar-yellow",
       bgAccent: "rgba(255,193,7,0.5)",
       technologies: [
-        { name: "Sentinel Imagery", icon: <FaSatellite size={16} /> },
-        { name: "VIIRS Nightlights", icon: <FaSatellite size={16} /> },
-        { name: "LiDAR", icon: <FaSatellite size={16} /> },
-        { name: "Radar Imagery", icon: <FaMicrochip size={16} /> },
-        { name: "Open Buildings", icon: <FaDatabase size={16} /> },
-        { name: "Multispectral Analysis", icon: <FaCogs size={16} /> },
+        { name: "Sentinel-2", icon: <FaSatellite size={16} /> },
+        { name: "VIIRS Nighttime Lights", icon: <FaSatellite size={16} /> },
+        { name: "Google Open Buildings", icon: <FaDatabase size={16} /> },
+        { name: "Microsoft Footprints", icon: <FaDatabase size={16} /> },
+        { name: "Land Use Classification", icon: <FaGlobe size={16} /> },
+        { name: "Building Density Analysis", icon: <FaCogs size={16} /> },
       ],
       stats: [
         { value: "3-5m", label: "Resolution" },
@@ -233,18 +230,18 @@ const Technology: React.FC = () => {
     {
       icon: <FaCloud size={32} />,
       title: "Cloud-based Infrastructure",
-      description: "Our distributed cloud architecture ensures high reliability and scalability across global deployments. With data centers strategically located in key regions, we provide low-latency access while maintaining strict data sovereignty compliance. Our containerized microservices enable rapid deployment and seamless scaling to handle periodic processing of petabytes of satellite imagery.",
+      description: "We leverage Vertex AI to train, host, and deploy our VOLTRA and VOLTIMA models for real-time inference via scalable endpoints. Dataflow powers our real-time stream processing pipeline, ingesting and transforming data for continuous updates. This architecture ensures immediate insights, seamless model deployment, and real-time dashboard visualization with unparalleled scalability.",
       color: "bg-sky-blue",
       accent: "sky-blue",
       bgColor: "bg-sky-blue",
       bgAccent: "rgba(0,188,212,0.5)",
       technologies: [
-        { name: "AWS", icon: <FaCloud size={16} /> },
-        { name: "Azure", icon: <FaCloud size={16} /> },
-        { name: "Kubernetes", icon: <FaCloud size={16} /> },
-        { name: "Docker", icon: <FaNetworkWired size={16} /> },
-        { name: "Terraform", icon: <FaCogs size={16} /> },
-        { name: "Redis", icon: <FaDatabase size={16} /> },
+        { name: "Vertex AI", icon: <FaBrain size={16} /> },
+        { name: "Dataflow", icon: <FaNetworkWired size={16} /> },
+        { name: "BigQuery", icon: <FaDatabase size={16} /> },
+        { name: "Earth Engine", icon: <FaGlobe size={16} /> },
+        { name: "Real-time Inference", icon: <FaCogs size={16} /> },
+        { name: "Stream Processing", icon: <FaCloud size={16} /> },
       ],
       stats: [
         { value: "99.99%", label: "Uptime" },
