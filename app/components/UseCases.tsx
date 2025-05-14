@@ -29,7 +29,7 @@ const UseCases: React.FC = () => {
     {
       icon: <FaCity size={28} />,
       title: "Government & Public Sector",
-      description: "Planning nationwide rural electrification initiatives, optimizing infrastructure investments, and monitoring project implementations for maximum impact.",
+      description: "70% of energy access strategies in Africa are over five years old — missing new demand zones, off-grid growth and real-time cost updates.",
       benefits: [
         "80% faster identification of unelectrified communities",
         "30% cost reduction in electrification planning",
@@ -52,7 +52,7 @@ const UseCases: React.FC = () => {
     {
       icon: <FaBolt size={28} />,
       title: "Energy Utilities & Developers",
-      description: "Rapidly identifying potential mini-grid and off-grid opportunities for commercial scale-up, with detailed financial analysis and implementation planning.",
+      description: "Fewer than one-third of agencies and utilities in Africa use real-time dashboards or scenario tools — resulting in strategy gaps, inappropriate funding and missed impact.",
       benefits: [
         "Identify viable mini-grid locations in minutes, not months",
         "Accurate demand forecasting for project sizing",
@@ -75,7 +75,7 @@ const UseCases: React.FC = () => {
     {
       icon: <FaHandsHelping size={28} />,
       title: "NGOs & International Agencies",
-      description: "Ensuring sustainable energy interventions with clear, measurable impacts and efficient resource allocation across multiple regions.",
+      description: "Fragmented processes add 12–24 months in delays and lead to up to 30% project overlap and inefficiencies.",
       benefits: [
         "Evidence-based program design",
         "Accurate baseline and impact measurement",
@@ -98,7 +98,7 @@ const UseCases: React.FC = () => {
     {
       icon: <FaChartLine size={28} />,
       title: "Investors & Financiers",
-      description: "Providing detailed financial insights and clear ROI for electrification investments, reducing risk and increasing confidence in energy access ventures.",
+      description: "50% of African investors report missing clear data reporting for effective and pragmatic investment evaluation.",
       benefits: [
         "Data-driven due diligence for investments",
         "Portfolio-wide risk assessment",

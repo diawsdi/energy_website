@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
               </div>
             </Link>
             <p className="text-gray-300 mt-4 leading-relaxed">
-              Intelligent Energy Access Planning & Monitoring leveraging AI, Remote Sensing, and Geospatial Intelligence to sustainably illuminate communities.
+              Intelligent energy access, planning and monitoring platform – leveraging AI, remote sensing and geospatial intelligence – for a fast, reliable and affordable electrification of Africa.
             </p>
             <div className="flex space-x-4 mt-6">
               <a href="#" className="w-10 h-10 bg-electric-blue bg-opacity-10 rounded-full flex items-center justify-center text-white hover:bg-electric-blue hover:text-white transition-all duration-300">
