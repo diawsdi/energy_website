@@ -29,30 +29,30 @@ const UseCases: React.FC = () => {
     {
       icon: <FaCity size={28} />,
       title: "Government & Public Sector",
-      description: "70% of energy access strategies in Africa are over five years old — missing new demand zones, off-grid growth and real-time cost updates.",
+      description: "Energy access strategies in Africa are often outdated — missing new demand zones, off-grid growth and real-time cost updates.",
       benefits: [
-        "80% faster identification of unelectrified communities",
-        "30% cost reduction in electrification planning",
+        "Faster identification of unelectrified communities",
+        "Cost reduction in electrification planning",
         "Evidence-based investment prioritization",
         "Transparent progress tracking for stakeholders"
       ],
       color: "bg-electric-blue",
       accentColor: "text-electric-blue",
       impactStats: [
-        { icon: <FaUsers />, value: "1.2M", label: "People Connected" },
-        { icon: <FaLightbulb />, value: "415", label: "Communities Electrified" },
-        { icon: <FaRegChartBar />, value: "$42M", label: "Budget Optimized" }
+        { icon: <FaUsers />, value: "", label: "People Connected" },
+        { icon: <FaLightbulb />, value: "", label: "Communities Electrified" },
+        { icon: <FaRegChartBar />, value: "", label: "Budget Optimized" }
       ],
       visualElements: [
-        { type: 'chart', value: "85%", label: "Planning Efficiency", color: "bg-electric-blue" },
+        { type: 'chart', value: "", label: "Planning Efficiency", color: "bg-electric-blue" },
         { type: 'icon', value: <FaGlobe className="text-white text-4xl" />, label: "Global Impact" },
-        { type: 'metric', value: "3.4x", label: "ROI Increase", color: "bg-vibrant-green" }
+        { type: 'metric', value: "", label: "ROI Increase", color: "bg-vibrant-green" }
       ]
     },
     {
       icon: <FaBolt size={28} />,
       title: "Energy Utilities & Developers",
-      description: "Fewer than one-third of agencies and utilities in Africa use real-time dashboards or scenario tools — resulting in strategy gaps, inappropriate funding and missed impact.",
+      description: "Many agencies and utilities in Africa lack real-time dashboards or scenario tools — resulting in strategy gaps, inappropriate funding and missed impact.",
       benefits: [
         "Identify viable mini-grid locations in minutes, not months",
         "Accurate demand forecasting for project sizing",
@@ -62,20 +62,20 @@ const UseCases: React.FC = () => {
       color: "bg-vibrant-green",
       accentColor: "text-vibrant-green", 
       impactStats: [
-        { icon: <FaLightbulb />, value: "243", label: "Mini-Grids Deployed" },
-        { icon: <FaRegChartBar />, value: "68%", label: "Faster Development" },
-        { icon: <FaClock />, value: "5.2", label: "Months to Deployment" }
+        { icon: <FaLightbulb />, value: "", label: "Mini-Grids Deployed" },
+        { icon: <FaRegChartBar />, value: "", label: "Faster Development" },
+        { icon: <FaClock />, value: "", label: "Months to Deployment" }
       ],
       visualElements: [
-        { type: 'chart', value: "90%", label: "Demand Forecast Accuracy", color: "bg-vibrant-green" },
-        { type: 'metric', value: "12x", label: "Time Savings", color: "bg-electric-blue" },
+        { type: 'chart', value: "", label: "Demand Forecast Accuracy", color: "bg-vibrant-green" },
+        { type: 'metric', value: "", label: "Time Savings", color: "bg-electric-blue" },
         { type: 'icon', value: <FaBolt className="text-white text-4xl" />, label: "Power Distribution" }
       ]
     },
     {
       icon: <FaHandsHelping size={28} />,
       title: "NGOs & International Agencies",
-      description: "Fragmented processes add 12–24 months in delays and lead to up to 30% project overlap and inefficiencies.",
+      description: "Fragmented processes add significant delays and lead to project overlap and inefficiencies.",
       benefits: [
         "Evidence-based program design",
         "Accurate baseline and impact measurement",
@@ -85,20 +85,20 @@ const UseCases: React.FC = () => {
       color: "bg-solar-yellow",
       accentColor: "text-solar-yellow",
       impactStats: [
-        { icon: <FaGlobe />, value: "36", label: "Countries Supported" },
-        { icon: <FaUsers />, value: "3.8M", label: "Beneficiaries" },
-        { icon: <FaRegChartBar />, value: "$118M", label: "Funding Optimized" }
+        { icon: <FaGlobe />, value: "", label: "Countries Supported" },
+        { icon: <FaUsers />, value: "", label: "Beneficiaries" },
+        { icon: <FaRegChartBar />, value: "", label: "Funding Optimized" }
       ],
       visualElements: [
         { type: 'icon', value: <FaGlobe className="text-white text-4xl" />, label: "Global Reach" },
-        { type: 'chart', value: "74%", label: "Program Efficiency", color: "bg-solar-yellow" },
-        { type: 'metric', value: "4.1x", label: "Impact Multiplier", color: "bg-electric-blue" }
+        { type: 'chart', value: "", label: "Program Efficiency", color: "bg-solar-yellow" },
+        { type: 'metric', value: "", label: "Impact Multiplier", color: "bg-electric-blue" }
       ]
     },
     {
       icon: <FaChartLine size={28} />,
       title: "Investors & Financiers",
-      description: "50% of African investors report missing clear data reporting for effective and pragmatic investment evaluation.",
+      description: "African investors report missing clear data reporting for effective and pragmatic investment evaluation.",
       benefits: [
         "Data-driven due diligence for investments",
         "Portfolio-wide risk assessment",
@@ -108,13 +108,13 @@ const UseCases: React.FC = () => {
       color: "bg-sky-blue",
       accentColor: "text-sky-blue",
       impactStats: [
-        { icon: <FaRegChartBar />, value: "$285M", label: "Capital Deployed" },
-        { icon: <FaChartLine />, value: "22%", label: "Average ROI" },
-        { icon: <FaLightbulb />, value: "842", label: "Projects Funded" }
+        { icon: <FaRegChartBar />, value: "", label: "Capital Deployed" },
+        { icon: <FaChartLine />, value: "", label: "Average ROI" },
+        { icon: <FaLightbulb />, value: "", label: "Projects Funded" }
       ],
       visualElements: [
-        { type: 'chart', value: "89%", label: "Risk Reduction", color: "bg-sky-blue" },
-        { type: 'metric', value: "1.8yr", label: "Average Payback", color: "bg-vibrant-green" },
+        { type: 'chart', value: "", label: "Risk Reduction", color: "bg-sky-blue" },
+        { type: 'metric', value: "", label: "Average Payback", color: "bg-vibrant-green" },
         { type: 'icon', value: <FaChartLine className="text-white text-4xl" />, label: "Growth Trajectory" }
       ]
     }
@@ -237,7 +237,7 @@ const UseCases: React.FC = () => {
                         <div className={`w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 ${useCases[activeTab].color} rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2 md:mb-3`}>
                           <span className="text-xs sm:text-sm md:text-base">{stat.icon}</span>
                         </div>
-                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-white">{stat.value}</div>
+                        <div className="text-xl md:text-2xl lg:text-3xl font-semibold text-white">{stat.value}</div>
                         <div className="text-xxs sm:text-xs md:text-sm text-gray-400">{stat.label}</div>
                       </motion.div>
                     ))}
@@ -259,7 +259,7 @@ const UseCases: React.FC = () => {
                               <div className="absolute inset-0 rounded-full border-2 sm:border-3 md:border-4 border-white/10"></div>
                               <div 
                                 className={`absolute inset-0 rounded-full border-2 sm:border-3 md:border-4 ${element.color}`}
-                                style={{ clipPath: `polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 ${100 - parseInt(element.value as string)}%)` }}
+                                style={{ clipPath: element.value ? `polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 ${100 - parseInt(element.value as string)}%)` : 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 25%)' }}
                               ></div>
                               <div className="absolute inset-0 flex items-center justify-center text-sm sm:text-base md:text-xl font-bold text-white">
                                 {element.value}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaCalendar } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
   return (
@@ -30,33 +30,6 @@ const Contact: React.FC = () => {
           <div className="space-y-6 sm:space-y-8">
             <div className="flex items-start">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-electric-blue bg-opacity-10 flex items-center justify-center mr-3 sm:mr-5 flex-shrink-0">
-                <FaMapMarkerAlt className="text-electric-blue" size={16} />
-              </div>
-              <div>
-                <h4 className="text-lg sm:text-xl font-montserrat font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-tight">Address</h4>
-                <p className="text-slate-gray text-base sm:text-lg font-inter">
-                  Dakar, Mermoz Sacre Coeur
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-electric-blue bg-opacity-10 flex items-center justify-center mr-3 sm:mr-5 flex-shrink-0">
-                <FaPhone className="text-electric-blue" size={16} />
-              </div>
-              <div>
-                <h4 className="text-lg sm:text-xl font-montserrat font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-tight">Telephone</h4>
-                <a 
-                  href="tel:+221771060900" 
-                  className="text-slate-gray text-base sm:text-lg font-inter hover:text-electric-blue transition-colors"
-                >
-                  +221 77 106 09 00
-                </a>
-              </div>
-            </div>
-            
-            <div className="flex items-start">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-electric-blue bg-opacity-10 flex items-center justify-center mr-3 sm:mr-5 flex-shrink-0">
                 <FaEnvelope className="text-electric-blue" size={16} />
               </div>
               <div>
@@ -66,6 +39,23 @@ const Contact: React.FC = () => {
                   className="text-slate-gray text-base sm:text-lg font-inter hover:text-electric-blue transition-colors break-words"
                 >
                   contact@involtlabs.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-electric-blue bg-opacity-10 flex items-center justify-center mr-3 sm:mr-5 flex-shrink-0">
+                <FaCalendar className="text-electric-blue" size={16} />
+              </div>
+              <div>
+                <h4 className="text-lg sm:text-xl font-montserrat font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-tight">Schedule a Meeting</h4>
+                <a 
+                  href="https://cal.com/heymouhammad/30min-business-meeting" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 px-5 py-2.5 bg-gradient-to-r from-electric-blue to-vibrant-green text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 ease-in-out"
+                >
+                  Book a 30-min Call
                 </a>
               </div>
             </div>

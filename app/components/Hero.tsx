@@ -278,7 +278,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <Link href="/#contact" className="relative group w-full sm:w-auto">
+            <Link href="https://form.typeform.com/to/KvtLbmEe" target="_blank" rel="noopener noreferrer" className="relative group w-full sm:w-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-solar-yellow to-vibrant-green rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
               <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-solar-yellow/30 text-white font-poppins font-medium tracking-wide">
                 <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out bg-gradient-to-r from-solar-yellow/10 to-vibrant-green/10 rounded-lg opacity-0 group-hover:opacity-100"></span>

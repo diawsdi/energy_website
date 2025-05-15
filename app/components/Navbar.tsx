@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
           <Link href="/#use-cases" className="font-medium text-white hover:text-solar-yellow transition-colors">
             Use Cases
           </Link>
-          <Link href="/#contact" className="relative group overflow-hidden">
+          <Link href="https://form.typeform.com/to/KvtLbmEe" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden">
             <span className="absolute -inset-[3px] bg-gradient-to-r from-solar-yellow via-vibrant-green to-electric-blue opacity-70 blur-sm rounded-lg group-hover:opacity-100 group-hover:blur-md transition-all duration-300"></span>
             <span className="absolute inset-0 bg-[#050A15] rounded-lg border border-white/10 group-hover:border-white/30 shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_20px_rgba(0,82,204,0.4)] transition-all duration-300"></span>
             <span className="absolute inset-0 bg-gradient-to-r from-electric-blue/10 via-vibrant-green/10 to-solar-yellow/10 rounded-lg opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"></span>
@@ -110,7 +110,9 @@ const Navbar: React.FC = () => {
               Use Cases
             </Link>
             <Link 
-              href="/#contact" 
+              href="https://form.typeform.com/to/KvtLbmEe" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="relative group overflow-hidden self-start"
               onClick={() => setIsMenuOpen(false)}
             >
