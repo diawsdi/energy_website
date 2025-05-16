@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             <Link href="/" className="inline-block">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-electric-blue via-vibrant-green to-solar-yellow opacity-50 blur rounded-lg"></div>
-                <span className="relative font-montserrat font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 z-10 py-1 px-1">
+                <span className="relative font-inter font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 z-10 py-1 px-1 tracking-scale">
                   InvoltAI
                 </span>
               </div>

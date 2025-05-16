@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,47 +16,48 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-size: 15px; /* Base font size for mobile */
+    font-size: 16px; /* Base font size following Scale.com */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em; /* Slight letter spacing reduction for cleaner look */
   }
   
   @screen sm {
     html {
-      font-size: 16px; /* Medium screens */
+      font-size: 16px; /* Consistent base size */
     }
   }
   
   @screen lg {
     html {
-      font-size: 17px; /* Larger screens */
+      font-size: 16px; /* Maintain consistent base size across devices (Scale.com approach) */
     }
   }
   
   body {
-    @apply font-inter text-slate-gray bg-pure-white leading-normal;
+    @apply font-inter text-slate-gray bg-pure-white leading-relaxed tracking-scale;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
   h1 {
-    @apply font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight;
+    @apply font-inter font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight;
   }
   
   h2 {
-    @apply font-montserrat font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight;
+    @apply font-inter font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight;
   }
   
   h3 {
-    @apply font-montserrat font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight;
+    @apply font-inter font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight;
   }
   
   h4 {
-    @apply font-montserrat font-bold text-base sm:text-lg md:text-xl leading-tight;
+    @apply font-inter font-bold text-base sm:text-lg md:text-xl leading-tight;
   }
   
   h5, h6 {
-    @apply font-montserrat font-bold text-sm sm:text-base md:text-lg leading-tight;
+    @apply font-inter font-bold text-sm sm:text-base md:text-lg leading-tight;
   }
   
   p {
@@ -67,15 +68,15 @@
 @layer components {
   /* Typography utility classes */
   .heading-large {
-    @apply text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold tracking-tight leading-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-inter font-bold tracking-scale leading-tight;
   }
   
   .heading-medium {
-    @apply text-2xl sm:text-3xl md:text-4xl font-montserrat font-bold tracking-tight leading-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl font-inter font-bold tracking-scale leading-tight;
   }
   
   .heading-small {
-    @apply text-xl sm:text-2xl md:text-3xl font-montserrat font-bold tracking-tight leading-tight;
+    @apply text-xl sm:text-2xl md:text-3xl font-inter font-bold tracking-scale leading-tight;
   }
   
   .body-large {

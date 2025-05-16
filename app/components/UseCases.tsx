@@ -140,7 +140,7 @@ const UseCases: React.FC = () => {
           <div className="inline-block mb-3">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-electric-blue via-vibrant-green to-solar-yellow opacity-50 blur-lg rounded-lg"></div>
-              <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 z-10 py-1 px-3 tracking-tight leading-tight">
+              <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-inter font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 z-10 py-1 px-3 tracking-scale leading-tight">
                 Use Cases
               </h2>
             </div>

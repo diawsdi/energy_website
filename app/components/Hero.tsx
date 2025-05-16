@@ -3,6 +3,110 @@ import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { FaBolt, FaSatellite, FaGlobe, FaLightbulb, FaArrowDown } from 'react-icons/fa';
 
+// 3D Gradient Blobs Animation
+const GradientBlobs: React.FC = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Top right blob - Solar yellow to vibrant green */}
+      <motion.div
+        className="absolute w-[650px] h-[650px] rounded-full"
+        style={{
+          top: '-150px',
+          right: '-150px',
+          background: 'radial-gradient(50% 50% at 50% 50%, rgba(255, 193, 7, 0.03) 0%, rgba(255, 193, 7, 0) 100%)',
+          border: '2px solid transparent',
+          borderImageSlice: 1,
+          borderImageSource: 'linear-gradient(to right, rgba(255, 193, 7, 0.5), rgba(76, 175, 80, 0.5))',
+          filter: 'blur(1px)',
+          boxShadow: '0 0 80px 15px rgba(255, 193, 7, 0.15)',
+        }}
+        animate={{
+          rotate: 360,
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          rotate: {
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear"
+          },
+          scale: {
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }
+        }}
+      />
+
+      {/* Bottom left blob - Electric blue to sky blue */}
+      <motion.div
+        className="absolute w-[550px] h-[550px] rounded-full"
+        style={{
+          bottom: '-120px',
+          left: '-120px',
+          background: 'radial-gradient(50% 50% at 50% 50%, rgba(0, 82, 204, 0.03) 0%, rgba(0, 82, 204, 0) 100%)',
+          border: '2px solid transparent',
+          borderImageSlice: 1,
+          borderImageSource: 'linear-gradient(to right, rgba(0, 82, 204, 0.5), rgba(0, 188, 212, 0.5))',
+          filter: 'blur(1px)',
+          boxShadow: '0 0 80px 15px rgba(0, 82, 204, 0.15)',
+        }}
+        animate={{
+          rotate: -360,
+          scale: [1, 1.08, 1],
+        }}
+        transition={{
+          rotate: {
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear"
+          },
+          scale: {
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }
+        }}
+      />
+
+      {/* Center blob - Green to yellow */}
+      <motion.div
+        className="absolute w-[500px] h-[500px] rounded-full"
+        style={{
+          top: '40%',
+          left: '60%',
+          background: 'radial-gradient(50% 50% at 50% 50%, rgba(76, 175, 80, 0.03) 0%, rgba(76, 175, 80, 0) 100%)',
+          border: '2px solid transparent',
+          borderImageSlice: 1,
+          borderImageSource: 'linear-gradient(to right, rgba(76, 175, 80, 0.4), rgba(0, 188, 212, 0.4))',
+          filter: 'blur(1px)',
+          boxShadow: '0 0 80px 15px rgba(76, 175, 80, 0.15)',
+          transform: 'translateX(-50%)',
+        }}
+        animate={{
+          rotate: 180,
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          rotate: {
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear"
+          },
+          scale: {
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }
+        }}
+      />
+    </div>
+  );
+};
+
 // Particle effect for background
 const Particles: React.FC = () => {
   const particles = Array.from({ length: 80 }).map((_, index) => ({
@@ -186,6 +290,7 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Multi-layer background elements */}
+      <GradientBlobs />
       <Particles />
       <HighlightCircles />
       <FloatingIcons />
@@ -205,7 +310,7 @@ const Hero: React.FC = () => {
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             />
-            <h1 className="relative font-montserrat text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="relative font-inter text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-scale">
               <motion.span
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -228,49 +333,17 @@ const Hero: React.FC = () => {
             </h1>
           </div>
           
-          {/* Dynamic subtitle with changing highlights - fixed for visibility and layout shift */}
+          {/* Compact subtitle paragraph */}
           <motion.div 
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white opacity-95 mb-6 max-w-3xl mx-auto font-inter font-light px-4 sm:px-0 leading-relaxed tracking-wide"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <p className="inline-block sm:inline">Intelligent electrification planning powered by</p>
-            <div className="relative inline-block sm:ml-2 min-w-[220px] h-[36px] align-bottom mt-2 sm:mt-0">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentTextIndex}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute left-0 whitespace-nowrap"
-                >
-                  <span 
-                    className="font-bold"
-                    style={{
-                      color: currentTextIndex === 0 ? '#FFC107' : 
-                             currentTextIndex === 1 ? '#0052CC' : '#4CAF50',
-                      textShadow: `0 0 15px ${currentTextIndex === 0 ? 'rgba(255,193,7,0.7)' : 
-                                  currentTextIndex === 1 ? 'rgba(0,82,204,0.7)' : 'rgba(76,175,80,0.7)'}`
-                    }}
-                  >
-                    {highlightTexts[currentTextIndex]}
-                  </span>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </motion.div>
-
-          <motion.p 
-            className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-white opacity-95 mb-8 max-w-2xl mx-auto font-inter px-4 sm:px-0 leading-relaxed tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            One platform to align your energy ambitions and your execution
-          </motion.p>
-          
+            <p>One platform to align your energy ambitions and your execution. Intelligent energy access, planning and monitoring for fast, reliable and affordable electrification of Africa.</p>
+          </motion.div>
+
+         
           {/* Enhanced CTA buttons */}
           <motion.div 
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 px-4 sm:px-0"

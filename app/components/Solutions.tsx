@@ -72,9 +72,9 @@ const Solutions: React.FC = () => {
     <section id="solutions" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-[#050A15] mb-4 tracking-tight">Our Solutions</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-inter font-bold text-[#050A15] mb-4 tracking-scale">Our Solutions</h2>
           <div className="h-1 w-20 bg-vibrant-green mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-inter">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-inter tracking-scale leading-relaxed">
             A comprehensive suite of tools for every stage of the electrification planning and monitoring process.
           </p>
         </div>
@@ -84,7 +84,7 @@ const Solutions: React.FC = () => {
           {solutions.map((solution, index) => (
             <button
               key={index}
-              className={`flex items-center px-4 py-3 rounded-lg whitespace-nowrap transition-all duration-300 ${
+              className={`flex items-center px-4 py-3 rounded-lg whitespace-nowrap transition-all duration-300 font-inter font-medium tracking-scale ${
                 activeTab === index 
                 ? 'bg-gradient-to-r from-electric-blue to-sky-blue text-white shadow-lg' 
                 : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
@@ -92,7 +92,7 @@ const Solutions: React.FC = () => {
               onClick={() => setActiveTab(index)}
             >
               <span className="mr-2">{solution.icon}</span>
-              <span className="hidden sm:inline font-medium">{solution.title}</span>
+              <span className="hidden sm:inline">{solution.title}</span>
             </button>
           ))}
         </div>
@@ -115,14 +115,14 @@ const Solutions: React.FC = () => {
                   <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-electric-blue to-electric-blue/60 flex items-center justify-center mb-6 text-white shadow-lg">
                     {solutions[activeTab].icon}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  <h3 className="text-2xl font-bold mb-4 text-gray-800 font-inter tracking-scale">
                     {solutions[activeTab].title}
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-600 mb-6 font-inter tracking-scale leading-relaxed">
                     {solutions[activeTab].description}
                   </p>
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-lg text-gray-800">Key Features:</h4>
+                    <h4 className="font-semibold text-lg text-gray-800 font-inter tracking-scale">Key Features:</h4>
                     <ul className="space-y-3.5">
                       {solutions[activeTab].features.map((feature, index) => (
                         <motion.li 
@@ -135,7 +135,7 @@ const Solutions: React.FC = () => {
                           <div className="mr-3 mt-0.5 text-vibrant-green shrink-0">
                             <FaCheckCircle className="w-5 h-5" />
                           </div>
-                          <span className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{feature}</span>
+                          <span className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 font-inter tracking-scale">{feature}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -145,7 +145,7 @@ const Solutions: React.FC = () => {
                       href="https://form.typeform.com/to/KvtLbmEe"
                       target="_blank"
                       rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-electric-blue to-sky-blue text-white rounded-lg font-medium hover:shadow-lg hover:shadow-electric-blue/20 transition-all duration-300 group"
+                      className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-electric-blue to-sky-blue text-white rounded-lg font-inter font-medium tracking-scale hover:shadow-lg hover:shadow-electric-blue/20 transition-all duration-300 group"
                     >
                       Learn More
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

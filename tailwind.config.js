@@ -27,11 +27,9 @@ module.exports = {
         'slate-gray': '#37474F',
       },
       fontFamily: {
-        'montserrat': ['Montserrat', 'sans-serif'],
-        'poppins': ['Poppins', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
-        'roboto': ['Roboto', 'sans-serif'],
-        'open-sans': ['Open Sans', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'unicode': ['Arial Unicode MS', 'Arial', 'sans-serif'],
       },
       fontSize: {
         'xxs': '0.625rem',   // 10px
@@ -49,6 +47,7 @@ module.exports = {
       letterSpacing: {
         'tighter': '-0.05em',
         'tight': '-0.025em',
+        'scale': '-0.01em',
         'normal': '0',
         'wide': '0.025em',
         'wider': '0.05em',

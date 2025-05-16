@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <span className="font-montserrat font-bold text-2xl text-white">
+          <span className="font-inter font-bold text-2xl text-white tracking-scale">
             InvoltAI
           </span>
         </Link>

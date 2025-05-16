@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-electric-blue mb-2 sm:mb-4 tracking-tight leading-tight">Contact Us</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-inter font-bold text-electric-blue mb-2 sm:mb-4 tracking-scale leading-tight">Contact Us</h2>
           <div className="h-1 w-16 sm:w-24 bg-electric-blue mx-auto mb-4 sm:mb-6 rounded-full"></div>
           <p className="text-slate-gray text-base sm:text-lg max-w-2xl mx-auto font-inter leading-relaxed tracking-wide">
             Get in touch with us to learn more about our services and how we can help you achieve your energy access goals.
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
                 <FaEnvelope className="text-electric-blue" size={16} />
               </div>
               <div>
-                <h4 className="text-lg sm:text-xl font-montserrat font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-tight">Email</h4>
+                <h4 className="text-lg sm:text-xl font-inter font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-scale">Email</h4>
                 <a 
                   href="mailto:contact@involtlabs.com" 
                   className="text-slate-gray text-base sm:text-lg font-inter hover:text-electric-blue transition-colors break-words"
@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
                 <FaCalendar className="text-electric-blue" size={16} />
               </div>
               <div>
-                <h4 className="text-lg sm:text-xl font-montserrat font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-tight">Schedule a Meeting</h4>
+                <h4 className="text-lg sm:text-xl font-inter font-semibold text-gray-800 mb-0.5 sm:mb-1 tracking-scale">Schedule a Meeting</h4>
                 <a 
                   href="https://cal.com/heymouhammad/30min-business-meeting" 
                   target="_blank"
