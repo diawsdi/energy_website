@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Transformation from './components/Transformation';
 import WhyUs from './components/WhyUs';
+import DataDriven from './components/DataDriven';
 import Solutions from './components/Solutions';
 import Technology from './components/Technology';
 import HowItWorks from './components/HowItWorks';
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <Transformation />
       <WhyUs />
+      <DataDriven />
       <Solutions />
       <Technology />
       <HowItWorks />
