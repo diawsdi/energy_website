@@ -4,7 +4,7 @@ import { FaPlay, FaSatellite, FaBrain, FaChartLine } from 'react-icons/fa';
 
 const HowInvoltWorks: React.FC = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <section id="how-involt-works" className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -118,7 +118,7 @@ const HowInvoltWorks: React.FC = () => {
             {
               icon: <FaBrain className="w-6 h-6" />,
               title: "AI-Powered Analysis",
-              description: "Advanced machine learning models predict energy access patterns",
+              description: "Advanced deep learning models to detect unelectrified areas and their energy needs",
               color: "bg-sky-blue"
             },
             {

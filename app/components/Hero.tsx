@@ -361,7 +361,7 @@ const Hero: React.FC = () => {
                 </span>
               </button>
             </Link>
-            <Link href="/#solutions" className="relative group overflow-hidden w-full sm:w-auto">
+            <Link href="/#how-involt-works" className="relative group overflow-hidden w-full sm:w-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-blue to-sky-blue rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
               <button className="relative w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#050A15] border border-electric-blue/30 text-white font-poppins font-medium tracking-wide">
                 <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out bg-gradient-to-r from-electric-blue/10 to-sky-blue/10 rounded-lg opacity-0 group-hover:opacity-100"></span>

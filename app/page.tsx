@@ -6,8 +6,7 @@ import Hero from './components/Hero';
 import Transformation from './components/Transformation';
 import WhyUs from './components/WhyUs';
 import HowInvoltWorks from './components/HowInvoltWorks';
-import DataDriven from './components/DataDriven';
-import Solutions from './components/Solutions';
+import ProductModules from './components/ProductModules';
 import Technology from './components/Technology';
 import HowItWorks from './components/HowItWorks';
 import UseCases from './components/UseCases';
@@ -22,8 +21,7 @@ export default function Home() {
       <Transformation />
       <WhyUs />
       <HowInvoltWorks />
-      <DataDriven />
-      <Solutions />
+      <ProductModules />
       <Technology />
       <HowItWorks />
       <UseCases />

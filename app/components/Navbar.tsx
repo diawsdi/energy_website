@@ -41,8 +41,11 @@ const Navbar: React.FC = () => {
           <Link href="/#why-us" className="font-medium text-white hover:text-solar-yellow transition-colors">
             Why InvoltAI
           </Link>
-          <Link href="/#solutions" className="font-medium text-white hover:text-solar-yellow transition-colors">
+          <Link href="/#how-involt-works" className="font-medium text-white hover:text-solar-yellow transition-colors">
             Solutions
+          </Link>
+          <Link href="/#modules" className="font-medium text-white hover:text-solar-yellow transition-colors">
+            Modules
           </Link>
           <Link href="/#technology" className="font-medium text-white hover:text-solar-yellow transition-colors">
             Technology
@@ -89,11 +92,18 @@ const Navbar: React.FC = () => {
               Why InvoltAI
             </Link>
             <Link 
-              href="/#solutions" 
+              href="/#how-involt-works" 
               className="font-medium text-white hover:text-solar-yellow transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Solutions
+            </Link>
+            <Link 
+              href="/#modules" 
+              className="font-medium text-white hover:text-solar-yellow transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Modules
             </Link>
             <Link 
               href="/#technology" 
