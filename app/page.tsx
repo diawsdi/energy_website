@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Transformation from './components/Transformation';
 import WhyUs from './components/WhyUs';
+import HowInvoltWorks from './components/HowInvoltWorks';
 import DataDriven from './components/DataDriven';
 import Solutions from './components/Solutions';
 import Technology from './components/Technology';
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <Transformation />
       <WhyUs />
+      <HowInvoltWorks />
       <DataDriven />
       <Solutions />
       <Technology />
